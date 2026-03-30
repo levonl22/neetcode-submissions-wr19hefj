@@ -1,0 +1,19 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] result = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            int product = 1;
+            for (int j = 0; j < nums.length; j++) {
+                if (j != i && nums[j] == 0) {
+                    product = 0;
+                    break;
+                }
+                else if (j != i) product *= nums[j];
+            }
+            result[i] = product;
+            product = 1;
+        }
+        return result;
+    }
+}  
